@@ -3,23 +3,31 @@ pipeline {
 
     stages {
         stage('BUILD') {
-            agent { label 'master' }
             steps {
                 sh '''
                     pwd
                     sleep 5
-                    echo This is the first stage: BUILD
+                    echo "This is the first stage: BUILD"
                 '''
             }
         }
 
         stage('TEST') {
-            agent { label 'master' }
             steps {
                 sh '''
                     pwd
                     sleep 5
-                    echo This is the first stage: TEST
+                    echo "This is the first stage: TEST"
+                '''
+            }
+        }
+
+        stage('DEPLOY') {
+            steps {
+                sh '''
+                    pwd
+                    sleep 5
+                    echo "This is the first stage: DEPLOY"
                 '''
             }
         }
