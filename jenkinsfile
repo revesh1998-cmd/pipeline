@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    environment {
+        REVESH = '1234'
+    }
+
     stages {
         stage('Test Environment Variable') {
             steps {
