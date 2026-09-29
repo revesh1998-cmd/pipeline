@@ -2,9 +2,12 @@ pipeline {
     agent any
 
     stages {
-        stage('BUILD') {
+        stage('Test Environment Variable') {
             steps {
-                sh 'echo Build started'
+                sh '''
+                    echo "Hello"
+                    echo "REVESH=$REVESH"
+                '''
             }
         }
     }
