@@ -1,8 +1,10 @@
-@Library("shared-lib") _
+@Library('shared-lib') _
+
 pipeline {
     agent any
 
     stages {
+
         stage('BUILD') {
             steps {
                 sh '''
@@ -23,13 +25,9 @@ pipeline {
             }
         }
 
-        stage('DEPLOY') {
+        stage('SHARED LIB') {
             steps {
-                sh '''
-                    pwd
-                    sleep 5
-                    echo "This is the first stage: DEPLOY"
-                '''
+                call()
             }
         }
     }
