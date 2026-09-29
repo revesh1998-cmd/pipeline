@@ -4,30 +4,15 @@ pipeline {
     agent any
 
     stages {
-
         stage('BUILD') {
             steps {
-                sh '''
-                    pwd
-                    sleep 5
-                    echo "This is the first stage: BUILD"
-                '''
+                revesh()
             }
         }
 
         stage('TEST') {
             steps {
-                sh '''
-                    pwd
-                    sleep 5
-                    echo "This is the first stage: TEST"
-                '''
-            }
-        }
-
-        stage('SHARED LIB') {
-            steps {
-                call()
+                echo 'This is the TEST stage'
             }
         }
     }
