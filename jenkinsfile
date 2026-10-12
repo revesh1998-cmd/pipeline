@@ -14,6 +14,9 @@ pipeline {
         stage('TEST') {
             steps {
                 echo 'This is the TEST stage'
+
+                // Temporary failure test
+                sh 'exit 1'
             }
         }
     }
@@ -24,9 +27,7 @@ pipeline {
                 to: 'revesh1998@gmail.com',
                 subject: "SUCCESS: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
                 body: """
-Hello,
-
-Your Jenkins pipeline completed successfully.
+Build completed successfully.
 
 Job: ${env.JOB_NAME}
 Build Number: ${env.BUILD_NUMBER}
@@ -43,19 +44,19 @@ ${env.BUILD_URL}console
                 to: 'revesh1998@gmail.com',
                 subject: "FAILURE: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
                 body: """
-Hello,
-
-Your Jenkins pipeline has failed.
+Build has failed.
 
 Job: ${env.JOB_NAME}
 Build Number: ${env.BUILD_NUMBER}
 Status: FAILURE
 
-Please check the console output:
+Console Output:
 ${env.BUILD_URL}console
 """
             )
         }
     }
 }
+
+
 
