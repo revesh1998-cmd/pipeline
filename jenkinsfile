@@ -21,7 +21,7 @@ pipeline {
     post {
         success {
             mail(
-                to: 'YOUR_GMAIL@gmail.com',
+                to: 'revesh1998@gmail.com',
                 subject: "SUCCESS: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
                 body: """
 Hello,
